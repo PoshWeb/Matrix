@@ -45,6 +45,7 @@ Import-Module ./ -PassThru
 Matrix has 1 function
 ### Get-Matrix
 #### Matrix
+
 Makes and Manipulates Matrix Transformations.
 
 Matrix Transformations move objects in space.
@@ -54,6 +55,7 @@ Matrix makes matrixes in PowerShell.
 This can transform objects in 2D, 3D, and 4D
 
 We can use matrix to make CSS or transform Vectors.
+
 <details>
 <summary>Notes</summary>
 
