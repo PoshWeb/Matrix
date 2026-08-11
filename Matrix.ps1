@@ -33,7 +33,9 @@
     # This is the object, untransformed, in 2D
     Matrix Identity
 .EXAMPLE
-    Matrix3D 1
+    # Gets a 3d identity matrix
+    # This is the object, untransformed, in 3d.
+    Matrix3D Identity
 .EXAMPLE
     # Scale a point in 2d space by directly calling `::CreateScale`
     [Numerics.Vector2]::new(1,1) |
@@ -70,7 +72,6 @@
     # Scale Z in 3D
     [Numerics.Vector3]::new(1,1,1) |
         ScaleZ 3
-
 .EXAMPLE
     # Move a point in 3d
     [Numerics.Vector3]::new(1,1,1) |
@@ -93,6 +94,29 @@
 .EXAMPLE
     # rotate3d as a matrix3d, as CSS 
     (Rotate3d 1 1 1 30deg).css
+.EXAMPLE
+    # Constructing a cube using translation
+
+    # Make a corner point
+    $corner = [Numerics.Vector3]::new(1,1,1)
+
+    # Make a square by translating along X and Y
+    $square = @(
+        $corner
+        $corner | TranslateX 1
+        $corner | TranslateY 1
+        $corner | TranslateX 1 | TranslateY 1
+    )
+
+    # Make a cube by translating the square along Z.
+    $cube = @(
+        $square
+        $square |
+            TranslateZ 1
+    )
+
+    $cube
+    
 .LINK
     https://github.com/PoshWeb/Matrix
 .LINK
@@ -478,4 +502,3 @@ if ($allInput.Length -and ($null -ne $allInput[0])) {
     # If we had no input, output the matrix.
     $matrix
 }
-
