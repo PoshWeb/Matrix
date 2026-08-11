@@ -6,7 +6,7 @@ Matrix math is tedious.  This module lets us avoid having to do it.
 We can represent changes in space using a matrix.
 
 |dimension|css function|.NET type|
-|-|-|
+|-|-|-|
 |2D|`matrix()`|`[Numerics.Matrix3x2]`|
 |3D|`matrix3d()`|`[Numerics.Matrix4x4]`|
 
