@@ -33,7 +33,7 @@ $this.M32
     </Members>
   </Type>
   <Type>
-    <Name>Matrix4x4</Name>
+    <Name>System.Numerics.Matrix4x4</Name>
     <Members>
       <ScriptProperty>
         <Name>CSS</Name>
