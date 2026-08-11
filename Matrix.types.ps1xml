@@ -1,7 +1,7 @@
 <!-- Generated with EZOut 2.0.6: Install-Module EZOut or https://github.com/StartAutomating/EZOut -->
 <Types>
   <Type>
-    <Name>Matrix3x2</Name>
+    <Name>System.Numerics.Matrix3x2</Name>
     <Members>
       <ScriptProperty>
         <Name>CSS</Name>
