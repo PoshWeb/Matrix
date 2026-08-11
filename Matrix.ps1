@@ -469,7 +469,7 @@ if ($ArgumentList.Length -eq 1 -and
 
 # .Net does not provide a `Create` method for either matrix that accepts a matrix
 if ($Member -eq 'Create' -and $ArgumentList[0] -is $matrixType) {
-    # So take all of Matrix properties and copy them over.
+    # So take all of Matrix properties and make them arguments.
     $argumentList = foreach ($property in $ArgumentList[0].psobject.properties) {
         if ($property.Name -match '^M\d{2}') {
             $property.Value
