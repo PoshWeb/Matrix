@@ -92,7 +92,17 @@
         Rotate3d 1 1 1 30deg
 .EXAMPLE
     # rotate3d as a matrix3d, as CSS 
-    (Rotate3d 1 1 1 30deg).css 
+    (Rotate3d 1 1 1 30deg).css
+.LINK
+    https://github.com/PoshWeb/Matrix
+.LINK
+    https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix4x4?wt.mc_id=MVP_321542
+.LINK
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix3D
+.LINK
+    https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix3x2?wt.mc_id=MVP_321542
+.LINK
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix
 #>
 [Alias(
     'Matrix4x4',

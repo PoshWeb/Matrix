@@ -166,8 +166,10 @@ if ($uniqueNames) {
             # And make it's synopsis a header
             "#### $($help.SYNOPSIS)"
 
+            ""
             # put the description below that
             "$($help.Description.text -join [Environment]::NewLine)"
+            ""
 
             $commandAliases = foreach ($aliasName in $module.ExportedAliases.Keys) {
                 if ($module.ExportedAliases[$aliasName].ResolvedCommand.ScriptBlock -eq 
@@ -278,7 +280,14 @@ if ($uniqueNames) {
                     $relatedUri = $related -as [uri]
                     if ($relatedUri.DnsSafeHost -eq 'learn.microsoft.com' -and 
                         $relatedUri.LocalPath -match '/dotnet/api') {
-                        "* [$($relatedUri.segments[-1] -replace '/')]($related)"
+                        "* [Learn DotNet $($relatedUri.segments[-1] -replace '/')]($related)"
+                    } 
+                    elseif ($relatedUri.DnsSafeHost -eq 'developer.mozilla.org' -and 
+                        $relatedUri.LocalPath -match '/(?<ref>[^/]+)/reference') {
+                        "* [MDN $($matches.ref) $($relatedUri.segments[-1] -replace '/')]($related)"
+                    }
+                    elseif ($relatedUri.DnsSafeHost) {
+                        "* [$($relatedUri.DnsSafeHost)$($relatedUri.LocalPath)]($related)"
                     } else {
                         "* [$related]($related)"
                     }                    

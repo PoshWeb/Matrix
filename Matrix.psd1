@@ -134,7 +134,25 @@ PrivateData = @{
 
 
         PSIntro = @'
- 
+Matrix math is tedious.  This module lets us avoid having to do it.
+
+We can represent changes in space using a matrix.
+
+In CSS, these are called [Transform Functions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function)
+
+|Dimension|Transform Function|.NET type|
+|-|-|-|
+|`2D`|`matrix()`|`[Numerics.Matrix3x2]`|
+|`3D`|`matrix3d()`|`[Numerics.Matrix4x4]`|
+
+
+
+The module allows you to make, modify, and use matrix transforms.
+
+It supports almost identical syntax to the CSS.
+
+We can use Matrix to make CSS transforms,
+and we can manipulate objects in 2D or 3D the same way a webpage would.
 '@
         # Prerelease string of this module
         # Prerelease = ''

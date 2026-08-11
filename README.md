@@ -5,18 +5,21 @@ Matrix math is tedious.  This module lets us avoid having to do it.
 
 We can represent changes in space using a matrix.
 
-|dimension|css function|.NET type|
-|-|-|-|
-|2D|`matrix()`|`[Numerics.Matrix3x2]`|
-|3D|`matrix3d()`|`[Numerics.Matrix4x4]`|
-
 In CSS, these are called [Transform Functions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function)
+
+|Dimension|Transform Function|.NET type|
+|-|-|-|
+|`2D`|`matrix()`|`[Numerics.Matrix3x2]`|
+|`3D`|`matrix3d()`|`[Numerics.Matrix4x4]`|
+
+
 
 The module allows you to make, modify, and use matrix transforms.
 
 It supports almost identical syntax to the CSS.
 
-We manipulate objects in 2D or 3d the same way a webpage would.
+We can use Matrix to make CSS transforms,
+and we can manipulate objects in 2D or 3D the same way a webpage would.
 
 ## Installing and Importing
 
@@ -266,7 +269,10 @@ rotate3d as a matrix3d, as CSS
 <details open>
 <summary>Links</summary>
 
-* [system.numerics.matrix3x2](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix3x2?wt.mc_id=MVP_321542)
-* [system.numerics.matrix4x4](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix4x4?wt.mc_id=MVP_321542)
+* [github.com/PoshWeb/Matrix](https://github.com/PoshWeb/Matrix)
+* [Learn DotNet system.numerics.matrix4x4](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix4x4?wt.mc_id=MVP_321542)
+* [MDN CSS matrix3D](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix3D)
+* [Learn DotNet system.numerics.matrix3x2](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix3x2?wt.mc_id=MVP_321542)
+* [MDN CSS matrix](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix)
 
 </details>
