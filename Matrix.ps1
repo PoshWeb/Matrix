@@ -115,8 +115,7 @@
             TranslateZ 1
     )
 
-    $cube
-    
+    $cube    
 .LINK
     https://github.com/PoshWeb/Matrix
 .LINK
@@ -468,10 +467,20 @@ if ($ArgumentList.Length -eq 1 -and
 }
 
 
+# .Net does not provide a `Create` method for either matrix that accepts a matrix
+if ($Member -eq 'Create' -and $ArgumentList[0] -is $matrixType) {
+    # So take all of Matrix properties and copy them over.
+    $argumentList = foreach ($property in $ArgumentList[0].psobject.properties) {
+        if ($property.Name -match '^M\d{2}') {
+            $property.Value
+        }
+    }
+}
+
 # Create the matrix by invoking the member
 # (or just returning the property)
 $matrix = 
-    if ($matrixType::$member.Invoke) {
+    if ($matrixType::$member.Invoke) {        
         $matrixType::$Member.Invoke($ArgumentList)
     } else {
         $matrixType::$Member
