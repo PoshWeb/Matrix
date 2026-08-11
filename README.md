@@ -123,8 +123,10 @@ Matrix Identity
 
 #### Example 2
 
+Gets a 3d identity matrix
+This is the object, untransformed, in 3d.
 ~~~PowerShell
-Matrix3D 1
+Matrix3D Identity
 ~~~
 
 
@@ -255,15 +257,41 @@ rotate3d as a matrix3d, as CSS
 (Rotate3d 1 1 1 30deg).css
 ~~~
 
+
+#### Example 17
+
+Constructing a cube using translation
+Make a corner point
+~~~PowerShell
+$corner = [Numerics.Vector3]::new(1,1,1)
+
+# Make a square by translating along X and Y
+$square = @(
+    $corner
+    $corner | TranslateX 1
+    $corner | TranslateY 1
+    $corner | TranslateX 1 | TranslateY 1
+)
+
+# Make a cube by translating the square along Z.
+$cube = @(
+    $square
+    $square |
+        TranslateZ 1
+)
+
+$cube
+~~~
+
 </details>
 <details open>
 <summary>Parameters</summary>
 
 |Name|Type|Description|
 |-|-|-|
-|ArgumentList|Object[]||
-|InputObject|PSObject[]||
-|Member|String||
+|ArgumentList|Object[]|Any arguments for the transform function<br/>Arguments can include numbers of CSS units.<br/>`deg` and `turn` are converted into radians<br/>`%` becomes a value between 0 and 1|
+|InputObject|PSObject[]|Any input objects.<br/>If the input object has a `Transform` static method,<br/>it will be transformed.<br/>If it does not, it will be passed thru.|
+|Member|String|The name of the method or property of a matrix transform.<br/>If this is provided, this method will be called instead.<br/>Many aliases, such as `Skew` or `Rotate`,<br/>will use a custom member and will ignore this parameter.|
 </details>
 
 <details open>
