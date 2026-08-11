@@ -297,7 +297,7 @@ $cube
 <details open>
 <summary>Links</summary>
 
-* [github.com/PoshWeb/Matrix](https://github.com/PoshWeb/Matrix)
+* [GitHub  PoshWeb  Matrix](https://github.com/PoshWeb/Matrix)
 * [Learn DotNet system.numerics.matrix4x4](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix4x4?wt.mc_id=MVP_321542)
 * [MDN CSS matrix3D](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix3D)
 * [Learn DotNet system.numerics.matrix3x2](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix3x2?wt.mc_id=MVP_321542)
