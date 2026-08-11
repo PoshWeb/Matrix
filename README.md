@@ -297,10 +297,10 @@ $cube
 <details open>
 <summary>Links</summary>
 
-* [GitHub  PoshWeb  Matrix](https://github.com/PoshWeb/Matrix)
-* [Learn DotNet system.numerics.matrix4x4](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix4x4?wt.mc_id=MVP_321542)
-* [MDN CSS matrix3D](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix3D)
-* [Learn DotNet system.numerics.matrix3x2](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix3x2?wt.mc_id=MVP_321542)
-* [MDN CSS matrix](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix)
+* [  PoshWeb  Matrix (GitHub)](https://github.com/PoshWeb/Matrix)
+* [system.numerics.matrix4x4 (Learn DotNet)](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix4x4?wt.mc_id=MVP_321542)
+* [CSS matrix3D (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix3D)
+* [system.numerics.matrix3x2 (Learn DotNet)](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.matrix3x2?wt.mc_id=MVP_321542)
+* [CSS matrix (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix)
 
 </details>
