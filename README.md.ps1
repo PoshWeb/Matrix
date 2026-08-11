@@ -280,11 +280,14 @@ if ($uniqueNames) {
                     $relatedUri = $related -as [uri]
                     if ($relatedUri.DnsSafeHost -eq 'learn.microsoft.com' -and 
                         $relatedUri.LocalPath -match '/dotnet/api') {
-                        "* [Learn DotNet $($relatedUri.segments[-1] -replace '/')]($related)"
+                        "* [$($relatedUri.segments[-1] -replace '/') (Learn DotNet)]($related)"
                     } 
                     elseif ($relatedUri.DnsSafeHost -eq 'developer.mozilla.org' -and 
                         $relatedUri.LocalPath -match '/(?<ref>[^/]+)/reference') {
-                        "* [MDN $($matches.ref) $($relatedUri.segments[-1] -replace '/')]($related)"
+                        "* [$($matches.ref) $($relatedUri.segments[-1] -replace '/') (MDN)]($related)"
+                    }
+                    elseif ($relatedUri.DnsSafeHost -eq 'github.com') {
+                        "* [$($relatedUri.Segments -replace '/', ' ') (GitHub)]($related)"
                     }
                     elseif ($relatedUri.DnsSafeHost) {
                         "* [$($relatedUri.DnsSafeHost)$($relatedUri.LocalPath)]($related)"
