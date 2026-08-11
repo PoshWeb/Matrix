@@ -1,0 +1,20 @@
+<!-- Generated with EZOut 2.0.6: Install-Module EZOut or https://github.com/StartAutomating/EZOut -->
+<Types>
+  <Type>
+    <Name>Matrix3x2</Name>
+    <Members>
+      <ScriptProperty>
+        <Name>Points</Name>
+        <GetScriptBlock>
+                        $this.M11
+$this.M12
+$this.M21
+$this.M22
+$this.M31
+$this.M32
+
+                    </GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+</Types>
