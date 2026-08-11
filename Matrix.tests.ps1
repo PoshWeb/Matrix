@@ -71,13 +71,9 @@ describe Matrix {
             $rotated.Z | Should -Be 1            
         }
         
-
         it 'Can Rotated3d' {
             (Rotate3d 1 1 1 30deg).CSS |
                 Should -Be 'matrix3d(0.9106836, -0.2440169, 0.3333333, 0, 0.3333333, 0.9106836, -0.2440169, 0, -0.2440169, 0.3333333, 0.9106836, 0, 0, 0, 0, 1)'
         }
-
     }
-
-
 }
