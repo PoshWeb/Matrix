@@ -36,6 +36,31 @@ $this.M32
     <Name>Matrix4x4</Name>
     <Members>
       <ScriptProperty>
+        <Name>CSS</Name>
+        <GetScriptBlock>
+                        return "matrix3d($(
+@(
+$this.M11
+$this.M12
+$this.M13
+$this.M14
+$this.M21
+$this.M22
+$this.M23
+$this.M24
+$this.M31
+$this.M32
+$this.M33
+$this.M34
+$this.M41
+$this.M42
+$this.M43
+$this.M44
+) -join ', '
+))"
+                    </GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
         <Name>Points</Name>
         <GetScriptBlock>
                         $this.M11
