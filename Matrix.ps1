@@ -209,10 +209,10 @@ $ArgumentList = @(
 $Matrix = $null
 
 switch ($myName) {
-    Rotate {
-        $MatrixType = [Numerics.Matrix4x4]
+    Rotate {        
+        $MatrixType = [Numerics.Matrix3x2]
         $Member = 'CreateRotation'
-        $ArgumentList = 0, 0, $ArgumentList[0]
+        $ArgumentList = $ArgumentList[0]
     }
     RotateX {
         $MatrixType = [Numerics.Matrix4x4]
