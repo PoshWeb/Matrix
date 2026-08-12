@@ -87,11 +87,6 @@ $this.M44
   <Type>
     <Name>System.Numerics.Quaternion</Name>
     <Members>
-    </Members>
-  </Type>
-  <Type>
-    <Name>System.Numerics.Quaternion</Name>
-    <Members>
       <ScriptProperty>
         <Name>CSS</Name>
         <GetScriptBlock>
