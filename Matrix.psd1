@@ -80,7 +80,8 @@ VariablesToExport = 'Matrix'
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
 AliasesToExport = 
     @(
-        'Matrix4x4', 'Matrix3x2', 'Matrix2d', 'Matrix3d'        
+        'Matrix4x4', 'Matrix3x2', 'Matrix2d', 'Matrix3d','Quaternion'
+        
         'Scale',
         'ScaleX',
         'ScaleY',

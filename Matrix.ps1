@@ -115,7 +115,7 @@
             TranslateZ 1
     )
 
-    $cube    
+    $cube
 .LINK
     https://github.com/PoshWeb/Matrix
 .LINK
@@ -131,7 +131,8 @@
     'Matrix4x4',
     'Matrix3x2',
     'Matrix2d',
-    'Matrix3d',
+    'Matrix3d',    
+    'Quaternion',
     'Skew',
     'SkewX',
     'SkewY',
@@ -186,6 +187,9 @@ $InputObject,
         if ($firstElement -match '(?>3d|4x4)') {
             [Numerics.Matrix4x4].GetMembers('Static,Public').Name -notmatch '_'
         }
+        elseif ($firstElement -match 'Quaternion') {
+            [Numerics.Quaternion].GetMembers('Static,Public').Name -notmatch '_'
+        }
         else {
             [Numerics.Matrix3x2].GetMembers('Static,Public').Name -notmatch '_'
         }
@@ -217,7 +221,11 @@ $matrixType =
     # If the name contains 3d or 4x4,    
     if ($myName -match '(?>3d|4x4)') {
         [Numerics.Matrix4x4] # treat it as a 3d matrix.
-    } else { # Otherwise
+    } 
+    elseif ($myName -match '(?>Quaternion|Versor)') {
+        [Numerics.Quaternion]
+    }
+    else { # Otherwise
         [Numerics.Matrix3x2] # treat it as a 2d matrix.
     }
 
@@ -492,7 +500,11 @@ if ($allInput.Length -and ($null -ne $allInput[0])) {
     $3dMatrix  =
         if ($matrix -is [Numerics.Matrix3x2]) {        
             [Numerics.Matrix4x4]::Create($matrix)
-        } else {
+        } 
+        elseif ($matrix -is [Numerics.Quaternion]) {
+            [Numerics.Matrix4x4]::CreateFromQuaternion($matrix)
+        }
+        else {
             $matrix
         }
 
