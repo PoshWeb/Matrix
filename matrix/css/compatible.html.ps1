@@ -1,3 +1,16 @@
+<#
+.SYNOPSIS
+    CSS Compatibility    
+.DESCRIPTION
+    Matrix CSS Compatibility
+.COMPONENT
+    /matrix/css/
+#>
+[Reflection.AssemblyMetadata(
+    'og:description', 'Matrix CSS Compatibility'
+)]
+param()
+
 $Title = 'CSS Compatibility'
 
 ConvertFrom-Markdown -InputObject @"
