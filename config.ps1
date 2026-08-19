@@ -2,6 +2,7 @@
 Set-Alias /_includes/CopyCode ./_includes/CopyCode.ps1
 Set-Alias /_includes/Palette ./_includes/Palette.ps1
 Set-Alias /_includes/FeatherIcon ./_includes/FeatherIcon.ps1
+Set-Alias /_includes/Sitemap ./_includes/Sitemap.ps1
 
 # Alias files we will use inline
 Set-Alias Matrix.css ./Matrix.css.ps1
