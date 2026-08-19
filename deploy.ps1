@@ -452,6 +452,7 @@ if ($PageUrl) {
         $sitemap.Save((
             Join-Path $SiteRoot "sitemap.xml"
         ))
+        Get-Item (Join-Path $SiteRoot "sitemap.xml")
     }
 }
 
