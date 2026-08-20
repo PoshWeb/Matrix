@@ -19,6 +19,35 @@ $this.M32
                     </GetScriptBlock>
       </ScriptProperty>
       <ScriptProperty>
+        <Name>MathML</Name>
+        <GetScriptBlock>
+                        &lt;#
+.SYNOPSIS
+    Matrix MathML
+.DESCRIPTION
+    Gets the Matrix as a MathML representation of itself.    
+#&gt;
+[xml]@"
+&lt;math display='block'&gt;
+    &lt;mo&gt;(&lt;/mo&gt;
+    &lt;mtable&gt;
+    $(
+        foreach ($row in 1..3) {
+            "&lt;mtr&gt;"
+            foreach ($col in 1..2) {
+                "&lt;mtd&gt;&lt;mn&gt;$($this."M${row}${col}")&lt;/mn&gt;&lt;/mtd&gt;"
+            }
+            "&lt;/mtr&gt;"
+        }
+    )
+    &lt;/mtable&gt;
+    &lt;mo&gt;)&lt;/mo&gt;  
+&lt;/math&gt;
+"@
+
+                    </GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
         <Name>Points</Name>
         <GetScriptBlock>
                         $this.M11
