@@ -3,6 +3,19 @@
   <Type>
     <Name>System.Numerics.Matrix3x2</Name>
     <Members>
+      <MemberSet>
+        <Name>PSStandardMembers</Name>
+        <Members>
+          <PropertySet>
+            <Name>DefaultDisplayPropertySet</Name>
+            <ReferencedProperties>
+              <Name>X</Name>
+              <Name>Y</Name>
+              <Name>Z</Name>
+            </ReferencedProperties>
+          </PropertySet>
+        </Members>
+      </MemberSet>
       <ScriptProperty>
         <Name>CSS</Name>
         <GetScriptBlock>
@@ -59,6 +72,12 @@ $this.M32
 
                     </GetScriptBlock>
       </ScriptProperty>
+      <NoteProperty>
+        <Name>DefaultDisplay</Name>
+        <Value>X
+Y
+Z</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
