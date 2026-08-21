@@ -16,7 +16,7 @@ $(
     foreach ($var in 'X','Y','Z','W') {
         "<mtd>"
             "<mi>$var</mi>"
-            "<mo>=</mo>"
+            "<mo>:</mo>"
             "<mn>$($this.$var)</mn>"        
         "</mtd>"
     }
