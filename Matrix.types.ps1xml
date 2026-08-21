@@ -289,6 +289,44 @@ $matrix.M44
 ))"
                     </GetScriptBlock>
       </ScriptProperty>
+      <ScriptProperty>
+        <Name>MathML</Name>
+        <GetScriptBlock>
+                        &lt;#
+.SYNOPSIS
+    Matrix MathML
+.DESCRIPTION
+    Gets the Matrix as a MathML representation of itself.
+.NOTES
+    Also shows the equivalent `[Numerics.Matrtix4x4]`
+#&gt;
+param()
+[xml]@"
+&lt;math display='block'&gt;
+&lt;mo&gt;[&lt;/mo&gt;
+&lt;mtable&gt;
+$(
+    "&lt;mtr&gt;"
+    foreach ($var in 'X','Y','Z','W') {
+        "&lt;mtd&gt;"
+            "&lt;mi&gt;$var&lt;/mi&gt;"
+            "&lt;mo&gt;=&lt;/mo&gt;"
+            "&lt;mn&gt;$($this.$var)&lt;/mn&gt;"        
+        "&lt;/mtd&gt;"
+    }
+    "&lt;/mtr&gt;"
+)
+&lt;/mtable&gt;
+&lt;mo&gt;]&lt;/mo&gt;
+&lt;mo&gt;=&lt;/mo&gt;$(
+    [Numerics.Matrix4x4]::CreateFromQuaternion($this).MathML.math.innerXml
+)
+&lt;/math&gt;
+"@
+
+
+                    </GetScriptBlock>
+      </ScriptProperty>
     </Members>
   </Type>
 </Types>
