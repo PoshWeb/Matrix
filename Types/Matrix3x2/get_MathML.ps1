@@ -2,7 +2,9 @@
 .SYNOPSIS
     Matrix MathML
 .DESCRIPTION
-    Gets the Matrix as a MathML representation of itself.    
+    Gets the Matrix as a MathML representation of itself.
+.NOTES
+    Also shows the equivalent `[Numerics.Matrtix4x4]`
 #>
 [xml]@"
 <math display='block'>
