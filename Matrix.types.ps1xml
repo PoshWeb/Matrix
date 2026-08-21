@@ -352,7 +352,7 @@ $(
     foreach ($var in 'X','Y','Z','W') {
         "&lt;mtd&gt;"
             "&lt;mi&gt;$var&lt;/mi&gt;"
-            "&lt;mo&gt;=&lt;/mo&gt;"
+            "&lt;mo&gt;:&lt;/mo&gt;"
             "&lt;mn&gt;$($this.$var)&lt;/mn&gt;"        
         "&lt;/mtd&gt;"
     }
