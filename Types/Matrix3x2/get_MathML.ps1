@@ -6,7 +6,7 @@
 #>
 [xml]@"
 <math display='block'>
-    <mo>(</mo>
+    <mo>[</mo>
     <mtable>
     $(
         foreach ($row in 1..3) {
@@ -18,6 +18,9 @@
         }
     )
     </mtable>
-    <mo>)</mo>  
+    <mo>]</mo>
+    <mo>=</mo>$(
+        [Numerics.Matrix4x4]::Create($this).MathML.math.innerXml
+    )  
 </math>
 "@
