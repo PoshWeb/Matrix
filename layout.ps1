@@ -43,9 +43,7 @@ $RepositoryUrl = $(
 $AnalyticsId,
 
 [string]
-$PaletteName = @(
-    'cyberpunk', 'Neon' | Get-Random
-),
+$PaletteName = 'cyberpunk',
 
 # The Google Font name
 [Alias('FontName')]
@@ -65,17 +63,29 @@ $SiteMenu = $(
     [PSCustomObject]@{
         Matrix = [PSCustomObject]@{
             CSS = [PSCustomObject]@{
-                Matrix = '/matrix/css/'
+                "CSS Matrix" = '/matrix/css/'
                 Compatibility = '/matrix/css/compatible/'
                 Transforms = '/matrix/css/transform/'
             }
-            HTML = '/matrix/html/'
+            HTML = [PSCustomObject]@{
+                "HTML Matrix" = '/matrix/html/'
+                "MathML Matrix" = '/matrix/mathml/'
+                "SVG Matrix" = '/matrix/svg/'
+            }            
             PowerShell = [PSCustomObject]@{
                 DotNet = '/matrix/dotnet/'
                 PowerShell = '/matrix/powershell/'
-            }
-            SVG = '/matrix/svg/'
+            }            
         }
+    }
+),
+
+[string]
+$SiteName = $(
+    if ($env:GITHUB_REPOSITORY) {
+        @($env:GITHUB_REPOSITORY -split '/', 2)[-1]
+    } else {
+        'Matrix'
     }
 ),
 
@@ -186,10 +196,10 @@ $head = @(
     }        
 
     if ($PageUrl) {
-        "<link rel='stylesheet' href='/Matrix.css' />"
+        "<link rel='stylesheet' href='/$SiteName.css' />"
     } else {
         "<style>"
-        Matrix.css
+        . "/$SiteName.css"
         "</style>"
     }
     
@@ -215,10 +225,10 @@ $body = @(
             "<section class='title'>"
                 "<div class='grid'>"
                     "<div class='logo'>"
-                        /Matrix.svg
+                        . "/$SiteName.svg"                        
                     "</div>"                    
                 "</div>"
-                "<h1 class='logo-text'>Matrix</h1>"
+                "<h1 class='logo-text'>$siteName</h1>"
             "</section>"
             "<details class='options-menu'>"
                 "<summary>$(/_includes/FeatherIcon settings)</summary>"
