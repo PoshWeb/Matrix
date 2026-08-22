@@ -30,7 +30,46 @@ To show a matrix as a MathML matrix, we just need to access the `.MathML` proper
 
 (Scale3d 3 2 1).MathML
 
+
 @'
+
+### Matrix3x2
+
+A 2D Matrix (`Matrix3x2`) can be mapped to a 3D Matrix (`Matrix4x4`).
+
+When we show a 2D Matrix's MathML, we show both the `matrix` and and it's equivalent `matrix3d`
+
+~~~PowerShell
+(Scale 1 2).MathML
+~~~
+'@ |
+    ConvertFrom-Markdown |
+        Select-Object -ExpandProperty Html
+
+(Scale 1 2).MathML
+
+@'
+
+### Quaternion
+
+A Quaternion (`[Numerics.Quaternion]`) can be mapped to a 3D Matrix (`[Numerics.Matrix4x4]`).
+
+When we show a Quaternion's MathML, we show both the `[Numerics.Quaternion]` and and it's equivalent `matrix3d`
+
+~~~PowerShell
+(Quaternion Identity).MathML
+~~~
+'@ |
+    ConvertFrom-Markdown |
+        Select-Object -ExpandProperty Html
+
+(Quaternion Identity).MathML
+
+@'
+
+### MathML in HTML
+
+MathML obviously works fine in html.
 
 We can also preview the matrix by accessing another property: `.html`
 
