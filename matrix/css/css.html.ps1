@@ -23,7 +23,7 @@ All those nice 3D effects?  Matrix transforms.
 The `Matrix` module helps give us greater mastery of [matrix transformations](/matrix/css/transform/),
 and gives us a way to make [css compatible](/matrix/css/compatible) transforms in PowerShell.
 
-Matrix maps [dotnet](/matrix/dotnet/) to [css](/matrix/css/)
+Matrix maps [dotnet](/matrix/dotnet/) to [css](/matrix/css/).
 
 * `Matrix3x2` is a [CSS matrix()](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix)
 * `Matrix4x4` is a [CSS matrix3d()](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix)

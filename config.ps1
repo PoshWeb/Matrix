@@ -10,3 +10,5 @@ Set-Alias Matrix.css ./Matrix.css.ps1
 Set-Alias Matrix.svg ./Matrix.svg.ps1
 Set-Alias /Matrix.css ./Matrix.css.ps1
 Set-Alias /Matrix.svg ./Matrix.svg.ps1
+
+$env:PaletteName = 'cyberpunk', 'Neon' | Get-Random

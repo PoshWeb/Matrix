@@ -11,22 +11,6 @@ param(
 # Know thyself
 $mySelf = $MyInvocation.MyCommand
 
-# Any environment variables
-foreach ($env in Get-ChildItem env:) {
-    # that are parameter names
-    if ($mySelf.Parameters[$env.Name] -and (
-        # and are not already bound parameters
-        -not $PSBoundParameters.ContainsKey($env:Name)
-    )) {
-        # are mapped to the variable
-        $ExecutionContext.SessionState.PSVariable.Set(
-            $env:Name,
-            $env:Value
-        )
-    }
-}
-
-
 $body = @"
 body {
     max-width:100%;
