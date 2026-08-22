@@ -265,6 +265,20 @@ W</Value>
   <Type>
     <Name>System.Numerics.Quaternion</Name>
     <Members>
+      <MemberSet>
+        <Name>PSStandardMembers</Name>
+        <Members>
+          <PropertySet>
+            <Name>DefaultDisplayPropertySet</Name>
+            <ReferencedProperties>
+              <Name>X</Name>
+              <Name>Y</Name>
+              <Name>Z</Name>
+              <Name>W</Name>
+            </ReferencedProperties>
+          </PropertySet>
+        </Members>
+      </MemberSet>
       <ScriptProperty>
         <Name>CSS</Name>
         <GetScriptBlock>
@@ -369,6 +383,13 @@ $(
 
                     </GetScriptBlock>
       </ScriptProperty>
+      <NoteProperty>
+        <Name>DefaultDisplay</Name>
+        <Value>X
+Y
+Z
+W</Value>
+      </NoteProperty>
     </Members>
   </Type>
 </Types>
