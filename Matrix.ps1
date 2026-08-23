@@ -132,7 +132,7 @@
     'Matrix3x2',
     'Matrix2d',
     'Matrix3d',    
-    'Quaternion',
+    'Quaternion',    
     'Skew',
     'SkewX',
     'SkewY',
@@ -262,7 +262,7 @@ filter cssunit {
 # Then convert all of our arguments into units
 $ArgumentList = @(
     $ArgumentList | cssunit    
-)
+) -ne $null
 
 # Next we will be determine the right matrix transform
 # Switch based off the name.
@@ -292,7 +292,7 @@ switch ($myName) {
         $MatrixType = [Numerics.Matrix4x4]
         $Member = 'CreateRotationZ'
         $ArgumentList = $ArgumentList[0]
-    }
+    }    
     Rotate3d {
         # Rotate3d is the complicated one.
         # It took some digging, but the CSS working defines rotate3d in matrix form
@@ -314,28 +314,33 @@ switch ($myName) {
         # The formula requires each value squared, so do that now
         $x2, $y2, $z2 = [Math]::Pow($x, 2), [Math]::Pow($y,2), [Math]::Pow($z, 2)
         # It also defines the angle as `alpha`
-        $alpha = $ArgumentList[3] -as [single]
-        # And then uses this bit of trig to find a point in the unit circle 
+        # Sadly, it does not denote the direction, 
+        # and testing indicates that it flips the angle.
+        $alpha = ($ArgumentList[3] -as [single]) * -1 
+               
+        # Some light trig gives us `$sc`,
+        # which is used throughout the following matrix
         $sc = [Math]::Sin($alpha/2) * [Math]::Cos($alpha/2)
-        # and this to find the max size of the square, given that angle
+        # `$sq` is the square of the sine of this angle,
+        # and is also used throughout the matrix.
         $sq = [Math]::Pow([Math]::Sin($alpha/2), 2)                
 
         # This next bit of complexity is translated directly from the reference.
         # With spacing and docs added for clarity.
         $ArgumentList = @(
-            #M 1 1
+            #M 1 1 (ScaleX)
             1 - (2 * ($y2 + $z2) * $sq)
             # M 1 2
             2 * (($x * $y * $sq) - ($z * $sc))
-            # M 1 3
+            # M 1 3 (Rotation Y)
             2 * (($x * $z * $sq) + ($y * $sc))
             # M 1 4
             0
             
-            # M 2 1
+            # M 2 1 ( Rotation Z )
             2 * (($x * $y * $sq) + ($z * $sc))
             
-            # M 2 2
+            # M 2 2 ( Scale Y)
             1 - (2 * ($x2 + $z2) * $sq)
 
             # M 2 3
@@ -347,20 +352,20 @@ switch ($myName) {
             # M 3 1
             2 * (($x * $z * $sq) - ($y * $sc))
 
-            # M 3 2
+            # M 3 2 ( Rotation X )
             2 * (($y * $z * $sq) + ($x * $sc))
 
-            # M 3 3
+            # M 3 3 (Scale Z)
             1.0 - (2 * ($x2 + $y2) * $sq)
 
             # M 3 4
             0
 
-            # M 4 1
+            # M 4 1 ( Translate X )
+            0 
+            # M 4 2 ( Translate Y )
             0
-            # M 4 2
-            0
-            # M 4 3
+            # M 4 3 ( Translate Z )
             0
             # M 4 4
             1
@@ -488,7 +493,7 @@ if ($Member -eq 'Create' -and $ArgumentList[0] -is $matrixType) {
 # Create the matrix by invoking the member
 # (or just returning the property)
 $matrix = 
-    if ($matrixType::$member.Invoke) {        
+    if ($matrixType::$member.Invoke) {                
         $matrixType::$Member.Invoke($ArgumentList)
     } else {
         $matrixType::$Member
