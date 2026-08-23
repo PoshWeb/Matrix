@@ -81,7 +81,6 @@ VariablesToExport = 'Matrix'
 AliasesToExport = 
     @(
         'Matrix4x4', 'Matrix3x2', 'Matrix2d', 'Matrix3d','Quaternion'
-        
         'Scale',
         'ScaleX',
         'ScaleY',
@@ -165,6 +164,8 @@ and we can manipulate objects in 2D or 3D the same way a webpage would.
         # ExternalModuleDependencies = @()
 
     } # End of PSData hashtable
+
+    Recommends = 'Vector'
 
 } # End of PrivateData hashtable
 
