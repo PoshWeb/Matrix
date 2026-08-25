@@ -89,6 +89,12 @@ $SiteName = $(
     }
 ),
 
+# The locale for the page.
+# By default, the Current UI Culture.
+[Alias('Locale')]
+[cultureinfo]
+$Culture = [CultureInfo]::CurrentUICulture,
+
 [uri]
 $PageUrl
 )
@@ -195,14 +201,15 @@ $head = @(
         }
     }        
 
-    if ($PageUrl) {
-        "<link rel='stylesheet' href='/$SiteName.css' />"
-    } else {
-        "<style>"
-        . "/$SiteName.css"
-        "</style>"
-    }
-    
+    if ($ExecutionContext.SessionState.InvokeCommand.GetCommand("/$SiteName.css", 'Alias,Function')) {
+        if ($PageUrl) {
+            "<link rel='stylesheet' href='/$SiteName.css' />"
+        } else {
+            "<style>"
+            . "/$SiteName.css"
+            "</style>"
+        }
+    }        
 )
 
 $body = @(
@@ -223,11 +230,13 @@ $body = @(
                 "</article>"
             "</details>"
             "<section class='title'>"
-                "<div class='grid'>"
-                    "<div class='logo'>"
-                        . "/$SiteName.svg"                        
+                if ($ExecutionContext.SessionState.InvokeCommand.GetCommand("/$siteName.svg", 'Alias,Function')) {
+                    "<div class='grid'>"
+                        "<div class='logo'>"
+                            . "/$SiteName.svg"
+                        "</div>"                    
                     "</div>"                    
-                "</div>"
+                }
                 "<h1 class='logo-text'>$siteName</h1>"
             "</section>"
             "<details class='options-menu'>"
@@ -247,7 +256,8 @@ $body = @(
 )
 
 
-"<html>"
+"<!DOCTYPE html>"
+"<html lang='$($Culture)'>"
     "<head>$head</head>"
     "<body>$body</body>"
 "</html>"
