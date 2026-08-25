@@ -1,3 +1,9 @@
+<#
+.SYNOPSIS
+    PowerShell Matrix
+.DESCRIPTION
+    Using Matrix in PowerShell
+#>
 $cubeTranslationExample = {
     # Constructing a cube using translation
 

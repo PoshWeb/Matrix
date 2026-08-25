@@ -1,3 +1,9 @@
+<#
+.SYNOPSIS
+    DotNet Matrix
+.DESCRIPTION
+    Matrix in DotNet
+#>
 $Title = 'Matrix DotNet'
 
 

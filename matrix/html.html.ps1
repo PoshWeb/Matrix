@@ -1,3 +1,9 @@
+<#
+.SYNOPSIS
+    HTML Matrix
+.DESCRIPTION
+    Matrix in HTML.
+#>
 $title = "HTML Matrix"
 
 @'

@@ -187,6 +187,12 @@ $head = @(
         )</title>"
     }
 
+    if ($description) {
+        "<meta name='description' content='$(
+            [Web.HttpUtility]::HtmlAttributeEncode($description)
+        )' />"
+    }
+
     # If a palette name was provided
     if ($PaletteName) { 
         # link to the stylesheet
@@ -258,6 +264,10 @@ $body = @(
 
 "<!DOCTYPE html>"
 "<html lang='$($Culture)'>"
-    "<head>$head</head>"
-    "<body>$body</body>"
+    "<head>$(
+        $head -join [Environment]::NewLine
+    )</head>"
+    "<body>$(
+        $body -join [Environment]::NewLine
+    )</body>"
 "</html>"

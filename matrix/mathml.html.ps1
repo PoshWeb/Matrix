@@ -2,7 +2,7 @@
 .SYNOPSIS
     MathML Matrix
 .DESCRIPTION
-    Matrix Math and MathML
+    Matrix and MathML
 #>
 [OutputType('text/html')]
 param()

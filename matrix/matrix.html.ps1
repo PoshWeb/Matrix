@@ -2,7 +2,7 @@
 .SYNOPSIS
     Matrix
 .DESCRIPTION
-    Transform Matrices in PowerShell
+    Matrix Transforms
 .NOTES
     Currently just replicating the README within the layout
 #>

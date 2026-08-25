@@ -279,6 +279,8 @@ foreach ($in in $files) {
         Meta = $meta
     }
 
+    $description = $help.description.text -join [Environment]::NewLine
+
     # Generate a file date by:
     $fileDate = $fileName -replace 
         # * Remove any non-digit (except colon, dash, and underscore, and Z)
@@ -353,7 +355,14 @@ foreach ($in in $files) {
     # Get our page output
     $output = @(. $in.FullName)
     
-    $page.Title = $title
+    if ($title) {
+        $page.Title = $title
+    }
+
+    if ($description) {
+        $page.Description = $description
+    }
+    
 
     # Store our output in the page
     $page.Output = $output    
@@ -377,6 +386,8 @@ foreach ($outputPath in $pages.Keys) {
     Write-Progress @progress
 
     $page = $pages[$outputPath]
+    $title = $page.Title
+    $description = $page.Description
     $outputExtension = $page.Extension
     $output = $page.Output
     $outputFiles = @()
