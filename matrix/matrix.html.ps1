@@ -9,8 +9,6 @@
 [OutputType('text/html')]
 param()
 
-$Title = 'Matrix'
-
 ConvertFrom-Markdown -Path (
     $PSScriptRoot | Split-Path | Join-Path -ChildPath 'README.md'
 ) -ErrorAction Ignore |

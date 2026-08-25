@@ -7,8 +7,6 @@
 [OutputType('text/html')]
 param()
 
-$Title = 'MathML Matrix'
-
 
 @'
 

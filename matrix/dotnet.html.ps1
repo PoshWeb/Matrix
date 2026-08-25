@@ -4,8 +4,7 @@
 .DESCRIPTION
     Matrix in DotNet
 #>
-$Title = 'Matrix DotNet'
-
+param()
 
 $matrixLinks = @{
     "Matrix3x2" = 

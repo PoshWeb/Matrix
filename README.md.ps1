@@ -19,8 +19,11 @@
     * Outputs the name and description
     * Provides installation instructions
     * Lists commands
+    * Includes aliases
+    * Includes notes
     * Lists parameters
     * Lists examples
+    * Lists links
 .EXAMPLE
     ./README.md.ps1 > ./README.md
 .EXAMPLE
@@ -42,10 +45,6 @@ $GitDomains = @(
 [Alias('ModuleTypeNames','ModuleTypes')]
 [string[]]
 $ModuleTypeName = @(),
-
-# The name of the root directory containing types.
-[string]
-$TypeRoot = 'Types',
 
 # If set, we don't need no badges.
 [switch]
@@ -256,7 +255,7 @@ if ($uniqueNames) {
                 ""                
 
                 "|Name|Type|Description|"
-                "|-|-|-|"
+                "|-|:-:|-|"
                 foreach ($parameter in $help.Parameters.Parameter) {
                     "|$($parameter.Name)|$($parameter.type.name)|$(
                         $parameter.description.text -replace '(?>\r\n|\n)', '<br/>'

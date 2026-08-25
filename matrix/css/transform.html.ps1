@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-    CSS Transforms
+    CSS Matrix
 .DESCRIPTION
-    We can transform any element with CSS.
+    CSS Transformation Matrices
 .COMPONENT
     /matrix/css/
 #>

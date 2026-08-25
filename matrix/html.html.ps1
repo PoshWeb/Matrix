@@ -4,7 +4,7 @@
 .DESCRIPTION
     Matrix in HTML.
 #>
-$title = "HTML Matrix"
+param()
 
 @'
 # HTML Matrix

@@ -4,6 +4,7 @@
 .DESCRIPTION
     Using Matrix in SVG.
 #>
+param()
 function copyz {
     param(
     [int]
@@ -50,10 +51,6 @@ function copyz {
         )>$($Children -join [Environment]::Newline)</$element>"
     }    
 }
-
-# copyz
-
-# return 
 
 @"
 
